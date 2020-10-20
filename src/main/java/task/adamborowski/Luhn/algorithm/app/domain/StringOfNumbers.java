@@ -1,5 +1,6 @@
 package task.adamborowski.Luhn.algorithm.app.domain;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,6 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class StringOfNumbers {
 
-    @NonNull
+    @NotNull
     private String stringOfNumbers;
 }

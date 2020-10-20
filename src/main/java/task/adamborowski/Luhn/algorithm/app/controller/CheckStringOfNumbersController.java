@@ -27,7 +27,7 @@ public class CheckStringOfNumbersController {
 
     }
     @PostMapping("/checkDigit")
-    public ResponseEntity<String> findCheckNumber(@RequestBody @Valid CheckNumbers checkNumbers){
+    public ResponseEntity<String> findCheckDigit(@RequestBody @Valid CheckNumbers checkNumbers){
         String checkDigitForGivenNumbers = checkStringOfNumbersService.findCheckDigitForGivenNumbers(checkNumbers);
         return new ResponseEntity<>(checkDigitForGivenNumbers,HttpStatus.OK);
 
