@@ -6,8 +6,13 @@ import task.adamborowski.Luhn.algorithm.app.dto.CheckNumbers;
 @Service
 public class CheckStringOfNumbersService {
 
-    public void isStringOfNumbersCorrect(CheckNumbers stringOfNumbers) {
-        checkStringOfNumbersUsingLuhnAlgorithm(stringOfNumbers.getStringOfNumbers());
+    public boolean isStringOfNumbersCorrect(CheckNumbers stringOfNumbers) {
+        boolean b = checkStringOfNumbersUsingLuhnAlgorithm(stringOfNumbers.getStringOfNumbers());
+        if(b==true) {
+        return true;
+        }else{
+            return false;
+        }
 
     }
     public String findCheckDigitForGivenNumbers(CheckNumbers stringOfNumbers){
@@ -16,7 +21,7 @@ public class CheckStringOfNumbersService {
     }
 
 
-    private static void checkStringOfNumbersUsingLuhnAlgorithm(String numbers) {
+    private static boolean checkStringOfNumbersUsingLuhnAlgorithm(String numbers) {
         int[] values = new int[numbers.length()];
         for (int i = 0; i < numbers.length(); i++) {
             values[i] = Integer.parseInt(numbers.substring(i, i + 1));
@@ -34,9 +39,9 @@ public class CheckStringOfNumbersService {
             sum += values[i];
         }
         if (sum % 10 == 0) {
-            System.out.println(numbers + "String of numbers is valid ");
+            return true;
         } else {
-            System.out.println(numbers + "String of numbers is invalid");
+            return false;
         }
     }
 
@@ -63,4 +68,5 @@ public class CheckStringOfNumbersService {
         number = sum + "";
         return number.substring(number.length() - 1);
     }
+    
 }
