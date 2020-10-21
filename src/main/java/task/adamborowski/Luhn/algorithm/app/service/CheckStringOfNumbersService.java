@@ -7,15 +7,16 @@ import task.adamborowski.Luhn.algorithm.app.dto.CheckNumbers;
 public class CheckStringOfNumbersService {
 
     public boolean isStringOfNumbersCorrect(CheckNumbers stringOfNumbers) {
-        boolean b = checkStringOfNumbersUsingLuhnAlgorithm(stringOfNumbers.getStringOfNumbers());
-        if(b==true) {
-        return true;
-        }else{
+        boolean checkNumbers = checkStringOfNumbersUsingLuhnAlgorithm(stringOfNumbers.getStringOfNumbers());
+        if (checkNumbers == true) {
+            return true;
+        } else {
             return false;
         }
 
     }
-    public String findCheckDigitForGivenNumbers(CheckNumbers stringOfNumbers){
+
+    public String findCheckDigitForGivenNumbers(CheckNumbers stringOfNumbers) {
         String checkDigit = findCheckDigit(stringOfNumbers.getStringOfNumbers());
         return checkDigit;
     }
@@ -68,5 +69,5 @@ public class CheckStringOfNumbersService {
         number = sum + "";
         return number.substring(number.length() - 1);
     }
-    
+
 }
